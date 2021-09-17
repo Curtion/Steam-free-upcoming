@@ -7,7 +7,9 @@
   "author": "Curtion <curtion@126.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.4",
     "discord.js": "^13.1.0",
+    "log4js": "^6.3.0",
     "qs": "^6.10.1"
   }
 }
