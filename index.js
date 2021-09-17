@@ -42,7 +42,7 @@ client.on("messageCreate", (message) => {
       desp: gameInfo.url + "\n\n" + gameInfo.description,
     });
     axios
-      .post("https://sctapi.ftqq.com/${serverKey}.send", data)
+      .post(`https://sctapi.ftqq.com/${serverKey}.send`, data)
       .then((res) => {
         logger.info("推送消息成功：", res);
       })
