@@ -1,7 +1,14 @@
 const { Client, Intents } = require("discord.js");
-const { token } = require("./config.json");
-const https = require("https");
+const { token, serverKey } = require("./config.json");
+const axios = require("axios");
 const qs = require("qs");
+const log4js = require("log4js");
+
+log4js.configure({
+  appenders: { message: { type: "file", filename: "message.log" } },
+  categories: { default: { appenders: ["message"], level: "error" } },
+});
+const logger = log4js.getLogger("message");
 
 const client = new Client({
   intents: [
@@ -14,7 +21,7 @@ const client = new Client({
 });
 
 client.once("ready", () => {
-  console.log("Ready!");
+  logger.info("登录discord成功");
 });
 client.on("messageCreate", (message) => {
   try {
@@ -34,30 +41,16 @@ client.on("messageCreate", (message) => {
       text: gameInfo.title,
       desp: gameInfo.url + "\n\n" + gameInfo.description,
     });
-    const req = https.request(
-      {
-        hostname: "sctapi.ftqq.com",
-        port: 443,
-        method: "POST",
-        path: "/SCT76304TUUqaQzaO4LuZPPPnpoxGjOf2.send",
-        headers: {
-          "Content-type": "application/x-www-form-urlencoded",
-          "Content-Length": data.length,
-        },
-      },
-      (res) => {
-        res.on("data", (d) => {
-          console.log(d);
-        });
-      }
-    );
-    req.on("error", (error) => {
-      console.error(error);
-    });
-    req.write(data);
-    req.end();
+    axios
+      .post("https://sctapi.ftqq.com/${serverKey}.send", data)
+      .then((res) => {
+        logger.info("推送消息成功：", res);
+      })
+      .catch((err) => {
+        logger.error("推送消息失败：", err);
+      });
   } catch (error) {
-    console.error(error);
+    logger.error("未知错误：", error);
   }
 });
 client.login(token);
