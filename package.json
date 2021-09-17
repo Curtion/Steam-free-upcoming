@@ -1,12 +1,10 @@
 {
-  "name": "Project",
+  "name": "project",
   "version": "1.0.0",
   "description": "Discord反向推送机器人",
   "main": "index.js",
   "repository": "git@github.com:Curtion/Steam-free-upcoming.git",
   "author": "Curtion <curtion@126.com>",
   "license": "MIT",
-  "dependencies": {
-    "discord.js": "^13.1.0"
-  }
+  "dependencies": {}
 }
