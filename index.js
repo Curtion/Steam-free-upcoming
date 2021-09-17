@@ -27,28 +27,27 @@ client.on("messageCreate", (message) => {
   try {
     const author = message.authorId;
     let gameInfo = {
-      title: "默认消息",
-      url: "https://blog.3gxk.net",
-      description:
-        "游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述",
+      title: "",
+      url: "",
+      description: "",
     };
     if (author === "884623552584769546") {
       gameInfo.title = message.embeds.title;
       gameInfo.url = message.embeds.url;
       gameInfo.description = message.embeds.description;
-    }
-    const data = qs.stringify({
-      text: gameInfo.title,
-      desp: gameInfo.url + "\n\n" + gameInfo.description,
-    });
-    axios
-      .post(`https://sctapi.ftqq.com/${serverKey}.send`, data)
-      .then((res) => {
-        logger.info("推送消息成功：", res);
-      })
-      .catch((err) => {
-        logger.error("推送消息失败：", err);
+      const data = qs.stringify({
+        text: gameInfo.title,
+        desp: gameInfo.url + "\n\n" + gameInfo.description,
       });
+      axios
+        .post(`https://sctapi.ftqq.com/${serverKey}.send`, data)
+        .then((res) => {
+          logger.info("推送消息成功：", res);
+        })
+        .catch((err) => {
+          logger.error("推送消息失败：", err);
+        });
+    }
   } catch (error) {
     logger.error("未知错误：", error);
   }
