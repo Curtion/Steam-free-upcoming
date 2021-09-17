@@ -9,7 +9,7 @@ Discord 机器人读取消息，然后推送到 Server 酱，由 Server 酱提�
 # **配置与使用(自搭建)**
 
 1. 新建 Discord 机器人
-   1. 登录 Discord： https://discord.com/developers/applications/me、
+   1. 登录 Discord： https://discord.com/developers/applications/me
    2. 点击右上角“New Application” 新建应用
    3. 点击新建的Application，点击左侧"Bot"，设定机器人信息，并复制TOKEN
    4. 把TOKEN填写到`config.example.json`文件内
