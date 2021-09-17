@@ -6,5 +6,8 @@
   "repository": "git@github.com:Curtion/Steam-free-upcoming.git",
   "author": "Curtion <curtion@126.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "qs": "^6.10.1"
+  }
 }
