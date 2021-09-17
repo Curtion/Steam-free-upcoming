@@ -21,7 +21,9 @@ client.on("messageCreate", (message) => {
     const author = message.authorId;
     let gameInfo = {
       title: "默认消息",
-      description: "默认描述",
+      url: "https://blog.3gxk.net",
+      description:
+        "游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述游戏默认描述",
     };
     if (author === "884623552584769546") {
       gameInfo.title = message.embeds.title;
