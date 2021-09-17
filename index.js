@@ -32,7 +32,7 @@ client.on("messageCreate", (message) => {
     }
     const data = qs.stringify({
       text: gameInfo.title,
-      desp: gameInfo.description,
+      desp: gameInfo.url + "\n\n" + gameInfo.description,
     });
     const req = https.request(
       {
