@@ -19,7 +19,10 @@ client.once("ready", () => {
 client.on("messageCreate", (message) => {
   try {
     const author = message.authorId;
-    let gameInfo = {};
+    let gameInfo = {
+      title: "默认消息",
+      description: "默认描述",
+    };
     if (author === "884623552584769546") {
       gameInfo.title = message.embeds.title;
       gameInfo.url = message.embeds.url;
