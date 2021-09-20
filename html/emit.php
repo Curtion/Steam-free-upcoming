@@ -16,7 +16,7 @@ function sc_send($text, $url, $description, $key) {
 
 }
 
-$key = "jnB6UteEE%kSLetB";
+$key = "";
 
 $p_key = $_GET['key'];
 
