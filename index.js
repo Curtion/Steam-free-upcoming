@@ -1,5 +1,5 @@
 const { Client, Intents } = require("discord.js");
-const { token } = require("./config.json");
+const { token, pushkey } = require("./config.json");
 const axios = require("axios");
 const log4js = require("log4js");
 
@@ -27,7 +27,7 @@ client.on("messageCreate", (message) => {
     const author = message.authorId;
     if (author === "884623552584769546") {
       axios
-        .post(`https://steam.3gxk.net/emit.php`, message.embeds)
+        .post(`https://steam.3gxk.net/emit.php?key=${pushkey}`, message.embeds)
         .then((res) => {
           logger.info("推送消息成功：", res.data);
         })
