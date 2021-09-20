@@ -12,7 +12,9 @@ Discord 机器人读取消息，然后推送到 Server 酱，由 Server 酱提�
 由于程序初衷用于自用，所以预想会有性能问题，等到性能不够用时再进行优化。
 
 网页：https://steam.3gxk.net
+
 sendkey：由 https://sct.ftqq.com/ 提供
+
 密钥：1472580369
 
 本服务会在 steam 有限免游戏时自动进行推送通知。
