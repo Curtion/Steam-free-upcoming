@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-item {
+            margin: 20px 0;
+            text-align: right;
+        }
+        .input {
+            height: 30px;
+            width: 300px;
+        }
+        .form-submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .submit {
+            width: 100%;
+            height: 40px;
+            cursor: pointer;
+        }
+        </style>
+        <title>新建任务</title>
+    </head>
+    
+    <body>
+        <form id="form" action="create.php" method="post">
+            <div class="form-item">
+                <label for="sendkey">SendKey：</label>
+                <input class="input" type="text" name="sendkey" placeholder="请输入SendKey" required>
+            </div>
+            <div class="form-item">
+                <label for="pwd">密钥：</label>
+                <input class="input" type="text" name="pwd" placeholder="请输入密钥" required>
+            </div>
+            <div class="form-item form-submit">
+                <input class="submit" type="submit" value="提交">
+            </div>
+        </form>
+    </body>
+
+</html>

@@ -1,12 +1,11 @@
 const { Client, Intents } = require("discord.js");
-const { token, serverKey } = require("./config.json");
+const { token, pushkey } = require("./config.json");
 const axios = require("axios");
-const qs = require("qs");
 const log4js = require("log4js");
 
 log4js.configure({
   appenders: { message: { type: "file", filename: "message.log" } },
-  categories: { default: { appenders: ["message"], level: "error" } },
+  categories: { default: { appenders: ["message"], level: "info" } },
 });
 const logger = log4js.getLogger("message");
 
@@ -26,27 +25,14 @@ client.once("ready", () => {
 client.on("messageCreate", (message) => {
   try {
     const author = message.authorId;
-    let gameInfo = {
-      title: "",
-      url: "",
-      description: "",
-    };
-    logger.info("Discord消息：", JSON.stringify(message.embeds));
     if (author === "884623552584769546") {
-      gameInfo.title = message.embeds.title;
-      gameInfo.url = message.embeds.url;
-      gameInfo.description = message.embeds.description;
-      const data = qs.stringify({
-        text: gameInfo.title,
-        desp: gameInfo.url + "\n\n" + gameInfo.description,
-      });
       axios
-        .post(`https://sctapi.ftqq.com/${serverKey}.send`, data)
+        .post(`https://steam.3gxk.net/emit.php?key=${pushkey}`, message.embeds)
         .then((res) => {
-          logger.info("推送消息成功：", res);
+          logger.info("推送消息成功：", res.data);
         })
         .catch((err) => {
-          logger.error("推送消息失败：", err);
+          logger.error("推送消息失败：", err.data);
         });
     }
   } catch (error) {
