@@ -25,6 +25,7 @@ client.once("ready", () => {
 client.on("messageCreate", (message) => {
   try {
     const author = message.authorId;
+    logger.info("Discord消息：", JSON.stringify(message.embeds));
     if (author === "884623552584769546") {
       axios
         .post(`https://steam.3gxk.net/emit.php?key=${pushkey}`, message.embeds)
