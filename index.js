@@ -31,6 +31,7 @@ client.on("messageCreate", (message) => {
       url: "",
       description: "",
     };
+    logger.info("Discord消息：", JSON.stringify(message.embeds));
     if (author === "884623552584769546") {
       gameInfo.title = message.embeds.title;
       gameInfo.url = message.embeds.url;
